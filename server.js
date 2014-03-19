@@ -1,6 +1,28 @@
 'use strict';
 
 var express = require('express');
+var ssh		= require('ssh2');
+var log		= require('npmlog');
+var q		= require('q');
+var sshConn = require('./lib/config/sshConnect');
+log.enableColor();
+
+
+
+// connect to server via ssh
+
+sshConn()
+	.then(
+		function() {
+			log.info('SSH connection open');
+		}
+	);
+
+
+
+// if successful resume with creating listen server
+
+
 
 /**
  * Main application file
