@@ -1,0 +1,10 @@
+node_modules
+public
+.tmp
+.sass-cache
+.idea
+app/bower_components
+app/styles/**/*.css
+heroku
+/views
+dist
