@@ -1,20 +1,14 @@
 'use strict';
 
-angular.module('categoryToolApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute'
-])
-  .config(function ($routeProvider, $locationProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'partials/main',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-      
-    $locationProvider.html5Mode(true);
-  });
+angular.module('Cat.Controllers', []);
+angular.module('Cat.Services', []);
+angular.module('Cat.Router', ['ngRoute']);
+
+angular.module('Cat', [
+		'Cat.Router',
+		'Cat.Services',
+		'Cat.Controllers',
+		'ngCookies',
+		'ngResource',
+		'ngSanitize'
+	]);
