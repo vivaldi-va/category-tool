@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Cat.Controllers', []);
-angular.module('Cat.Services', []);
+angular.module('Cat.Services', ['ngResource']);
 angular.module('Cat.Router', ['ngRoute']);
 
 angular.module('Cat', [
@@ -9,6 +9,6 @@ angular.module('Cat', [
 		'Cat.Services',
 		'Cat.Controllers',
 		'ngCookies',
-		'ngResource',
-		'ngSanitize'
+		'ngSanitize',
+		'ui.bootstrap'
 	]);

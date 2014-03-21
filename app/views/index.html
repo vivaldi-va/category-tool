@@ -16,6 +16,8 @@
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
+
+
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -26,7 +28,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div class="content" ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -51,14 +53,19 @@
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/config/router.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/services/categoryservice.js"></script>
+        <script src="scripts/services/productservice.js"></script>
+        <script src="scripts/controllers/maincontroller.js"></script>
         <script src="scripts/controllers/navbar.js"></script>
+        <script src="scripts/controllers/categorylistcontroller.js"></script>
+        <script src="scripts/controllers/productsearchcontroller.js"></script>
         <!-- endbuild -->
 </body>
 </html>

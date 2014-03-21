@@ -1,13 +1,31 @@
 <div ng-include="'partials/navbar'"></div>
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-4">
+<div class="row">
+	<div class="col-md-4" ng-controller="CatListCtrl">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">category list</h3>
+			</div>
 
+			<div class="panel panel-default">
+				<accordion close-others="true">
+					<accordion-group ng-repeat="category in categories" heading="{{category.name}}">
+						<ul class="list-group">
+							<li class="list-group-item" ng-repeat="child in category.children">{{ child.name }}</li>
+						</ul>
+					</accordion-group>
+				</accordion>
+			</div>
 		</div>
-		<div class="col-md-8">
-			<form action=""><input class="form-control" type="text"/></form>
-			<div class="panel panel-default"></div>
+	</div>
+	<div class="col-md-8" ng-controller="ProductSearchCtrl">
+		<form ng-submit="search()"><input class="form-control" type="text" ng-model="term"></form>
+		<div class="panel panel-default">
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="product in products">
+					{{ product.name }}
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>
