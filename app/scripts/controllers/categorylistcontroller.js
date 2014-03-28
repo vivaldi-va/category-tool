@@ -3,6 +3,7 @@
  */
 
 angular.module('Cat.Controllers')
-	.controller('CatListCtrl', ['$scope', 'CategoryService', function($scope, CategoryService) {
+	.controller('CatListCtrl', ['$scope', '$log', 'CategoryService', function($scope, $log, CategoryService) {
 		$scope.categories = CategoryService.get();
+
 	}]);

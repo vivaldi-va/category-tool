@@ -9,6 +9,10 @@ angular.module('Cat.Router')
 				templateUrl: 'partials/main',
 				controller: 'MainCtrl'
 			})
+			.when('/category/add', {
+				templateUrl: 'partials/category-add.html',
+				controller: 'CatAddCtrl'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
