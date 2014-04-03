@@ -10,7 +10,9 @@
     "angular-sanitize": "1.2.11",
     "angular-route": "1.2.11",
     "bootstrap": "~3.1.1",
-    "angular-bootstrap": "~0.10.0"
+    "angular-bootstrap": "~0.10.0",
+    "font-awesome": "~4.0.3",
+    "normalize-less": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.2.11",

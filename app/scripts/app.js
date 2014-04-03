@@ -10,5 +10,4 @@ angular.module('Cat', [
 		'Cat.Controllers',
 		'ngCookies',
 		'ngSanitize',
-		'ui.bootstrap'
 	]);

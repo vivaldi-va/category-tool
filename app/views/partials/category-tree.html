@@ -1,10 +1,13 @@
 <div class="panel panel-default" ng-repeat="category in category.children">
-	<div ng-if="category.children.length>1">
-
+	<div ng-if="category.children.length>0">
 		<div class="panel-heading">
 			<h3 class="panel-title">{{ category.name }}</h3>
 		</div>
 		<div class="panel-body" ng-include="'/views/partials/category-tree.html'"></div>
 	</div>
-	<span ng-if="category.children.length==0">{{ category.name }}</span>
+
+	<span ng-if="category.children.length<1">{{ category.name }}</span>
+	<button class="btn btn-default btn-block"><i class="fa fa-plus"></i> add child category</button>
+
+
 </div>
