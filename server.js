@@ -5,6 +5,8 @@ var ssh = require('ssh2');
 var log = require('npmlog');
 var q = require('q');
 var sshConn = require('./lib/config/sshConnect');
+
+
 log.enableColor();
 
 
@@ -14,7 +16,6 @@ sshConn()
 	.then(
 	function () {
 		log.info('SSH connection open');
-
 
 		/**
 		 * Main application file
@@ -30,6 +31,7 @@ sshConn()
 
 		// Express settings
 		require('./lib/config/express')(app);
+		require('./lib/config/serv')();
 		log.info("express config loaded");
 
 		// Routing
