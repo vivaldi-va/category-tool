@@ -1,0 +1,26 @@
+.btn {
+	@dimension: 40px;
+
+	height: @dimension;
+	min-width: @dimension;
+	padding: 0 0.5em;
+
+	background: @offWhite;
+	border: 1px solid @borderGrey;
+
+	//line-height: @dimension;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+
+	&.nostyle {
+		border: none;
+		background: transparent;
+		color: inherit;
+	}
+}
