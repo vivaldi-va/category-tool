@@ -1,0 +1,40 @@
+
+<div class="category-list-wrapper" ng-controller="CatListCtrl">
+	<div class="zone-heading">
+		<h3 class="zone-heading-title">category list <small>{{ categoryRoot.name }}</small></h3>
+	</div>
+
+	<div class="well category-list">
+
+		<div class="category-wrapper" ng-repeat="category in categoryRoot.children" ng-class="{'open': expandedCategory==category}" ng-click="navigateDown(category)">
+			<div class="category">
+				<div class="category-name-wrapper">
+					<div class="category-name">{{category.name}}</div>
+				</div>
+				<div class="category-interactions-wrapper">
+					<button type="button" class="btn nostyle category-interaction" ng-if="category.children.length>0" ng-click="expandCategory(category); $event.stopPropagation()">
+						<i class="fa fa-fw fa-caret-left" ng-class="{'fa-rotate-270': expandedCategory === category}"></i>
+					</button>
+					<button type="button" class="btn nostyle category-interaction" ng-click="$event.stopPropagation()">
+						<i class="fa fa-fw fa-plus"></i>
+					</button>
+				</div>
+			</div>
+			<div class="category-children-wrapper">
+				<div class="category child" ng-repeat="category in category.children">
+					<div class="category-name-wrapper">
+						<div class="category-name">{{category.name}}</div>
+					</div>
+					<div class="category-interactions-wrapper">
+						<button type="button" class="btn nostyle category-interaction" ng-if="category.children.length>0" ng-click="navigateDown(category); $event.stopPropagation()">
+							<i class="fa fa-fw fa-caret-left"></i>
+						</button>
+						<button type="button" class="btn nostyle category-interaction" ng-click="$event.stopPropagation()">
+							<i class="fa fa-fw fa-plus"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
