@@ -3,11 +3,11 @@
  */
 
 angular.module('Cat.Controllers')
-	.controller('CatListCtrl', ['$scope', '$log', 'CategoryService', function($scope, $log, CategoryService) {
+	.controller('CatListCtrl', ['$scope', '$rootScope', '$log', 'CategoryService', function($scope, $rootScope, $log, CategoryService) {
 		$scope.categories		= CategoryService.get();
 
 		$scope.categories.$promise.then(function(data) {
-			$scope.categoryRoot		= data.root;
+			$rootScope.categoryRoot		= data.root;
 		});
 
 
@@ -23,7 +23,7 @@ angular.module('Cat.Controllers')
 		};
 
 		$scope.navigateDown = function(category) {
-			$scope.categoryRoot = category;
+			$rootScope.categoryRoot = category;
 		};
 
 		$scope.makeCategory = function(parent, name) {

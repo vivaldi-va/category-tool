@@ -3,17 +3,18 @@
  */
 
 angular.module('Cat.Controllers')
-	.controller('CatAddCtrl', function($scope, $log, CategoryService) {
+	.controller('CatAddCtrl', function($scope, $rootScope, $log, CategoryService) {
 
 
 		$scope.categories = CategoryService.get();
 
 		$scope.submit = function() {
 			var data = {
-				"name": $scope.catName
+				"name": $scope.catName,
+				"parent": $scope.categoryRoot.id
 			};
 
-			if($scope.catParent) data.parent = $scope.catParent;
+			//if($scope.catParent) data.parent = $scope.catParent;
 
 			/*var res = CategoryService.create(data);
 			res.then(
