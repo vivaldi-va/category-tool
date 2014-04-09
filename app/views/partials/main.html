@@ -13,18 +13,20 @@
 					selected category
 				</button>
 				<input class="input input-primary input-fill" type="text" placeholder="search for products by keyword" ng-model="term">
-				<button class="btn"><i class="fa fa-fw fa-search"></i></button>
-				<button class="btn"><i class="fa fa-fw fa-plus"></i></button>
+				<button type="button" class="btn"><i class="fa fa-fw fa-search"></i></button>
+				<button type="button" class="btn" ng-click="createCatFromSearch()"><i class="fa fa-fw fa-plus"></i></button>
 			</form>
 			<label><input type="checkbox">select all</label>
 			<div class="well result-list">
 
 				<span class="zero-helper-text" ng-if="!products.length">search for products to add to a category or to edit&nbsp;their&nbsp;information</span>
-
+				<div class="result-list-item">
+					<div class="result-list-item-content-wrapper"><span>{{ selectedProducts }}</span></div>
+				</div>
 				<div class="result-list-item" ng-repeat="product in products">
 
 					<div class="interaction checkbox">
-						<input type="checkbox" ng-model="product.id">
+						<input type="checkbox" ng-model="product.selected">
 					</div>
 					<div class="result-list-item-content-wrapper"><span>{{ product.name }}</span></div>
 					<button type="button" class="btn nostyle interaction"><i class="fa fa-fw fa-gear"></i></button>

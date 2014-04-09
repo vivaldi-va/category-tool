@@ -26,7 +26,16 @@ angular.module('Cat.Controllers')
 			$rootScope.categoryRoot = category;
 		};
 
+		$scope.openNewCatForm = function(category) {
+			category.formOpen = true;
+		};
+
 		$scope.makeCategory = function(parent, name) {
 			parent = parent || 0;
+
+			CategoryService.create({"parent": parent, "name": name}).$promise
+				.then(function(res) {
+					$log.info(res);
+				});
 		};
 	}]);

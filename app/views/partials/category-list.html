@@ -6,6 +6,12 @@
 
 	<div class="well category-list">
 
+		<div class="category-wrapper new-category-form-wrapper">
+			<form class="new-category-form" ng-submit="makeCategory(categoryRoot.id, newCategoryName)">
+				<input type="text" class="new-category-input-name" placeholder="name of new category" required ng-model="newCategoryName">
+				<button class="btn nostyle"><i class="fa fa-fw fa-check"></i></button>
+			</form>
+		</div>
 		<div class="category-wrapper" ng-repeat="category in categoryRoot.children" ng-class="{'open': expandedCategory==category}" ng-click="navigateDown(category)">
 			<div class="category">
 				<div class="category-name-wrapper">
@@ -15,12 +21,18 @@
 					<button type="button" class="btn nostyle category-interaction" ng-if="category.children.length>0" ng-click="expandCategory(category); $event.stopPropagation()">
 						<i class="fa fa-fw fa-caret-left" ng-class="{'fa-rotate-270': expandedCategory === category}"></i>
 					</button>
-					<button type="button" class="btn nostyle category-interaction" ng-click="$event.stopPropagation()">
+					<button type="button" class="btn nostyle category-interaction" ng-click="navigateDown(category);openNewCatForm(category);$event.stopPropagation()">
 						<i class="fa fa-fw fa-plus"></i>
 					</button>
 				</div>
 			</div>
 			<div class="category-children-wrapper">
+				<div class="category new-category-form-wrapper" ng-if="category.formOpen" ng-click="$event.stopPropagation()">
+					<form class="new-category-form">
+						<input type="text" class="new-category-input-name" placeholder="name of new category">
+						<button class="btn nostyle"><i class="fa fa-fw fa-check"></i></button>
+					</form>
+				</div>
 				<div class="category child" ng-repeat="category in category.children">
 					<div class="category-name-wrapper">
 						<div class="category-name">{{category.name}}</div>
