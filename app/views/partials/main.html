@@ -31,11 +31,11 @@
 									<div class="category-name">{{category.name}}</div>
 								</div>
 								<div class="category-interactions-wrapper">
-									<button type="button" class="btn nostyle category-interaction" ng-click="$event.stopPropagation()">
-										<i class="fa fa-fw fa-plus"></i>
-									</button>
 									<button type="button" class="btn nostyle category-interaction" ng-if="category.children.length>0" ng-click="navigateDown(category); $event.stopPropagation()">
 										<i class="fa fa-fw fa-caret-left"></i>
+									</button>
+									<button type="button" class="btn nostyle category-interaction" ng-click="$event.stopPropagation()">
+										<i class="fa fa-fw fa-plus"></i>
 									</button>
 								</div>
 							</div>
@@ -67,6 +67,9 @@
 			</form>
 			<label><input type="checkbox">select all</label>
 			<div class="well result-list">
+
+				<span class="zero-helper-text" ng-if="!products.length">search for products to add to a category or to edit&nbsp;their&nbsp;information</span>
+
 				<div class="result-list-item" ng-repeat="product in products">
 
 					<div class="interaction checkbox">
