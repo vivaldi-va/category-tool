@@ -10,6 +10,7 @@ angular.module('Cat.Controllers')
 		$scope.categories.$promise.then(function(data) {
 			$rootScope.categoryRoot	= data.root;
 		});
+		$scope.activeCatMenu = null
 
 		$scope.expandedCategory	= null;
 
@@ -41,6 +42,14 @@ angular.module('Cat.Controllers')
 
 		$scope.openNewCatForm = function(category) {
 			category.formOpen = true;
+		};
+
+		$scope.toggleCatMenu = function(category) {
+			if($scope.activeCatMenu === category) {
+				$scope.activeCatMenu = null;
+			} else {
+				$scope.activeCatMenu = category;
+			}
 		};
 
 		$scope.makeCategory = function(parent, name) {

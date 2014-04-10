@@ -16,18 +16,23 @@
 			</form>
 		</div>
 		<div class="category-wrapper" ng-repeat="category in categoryRoot.children" ng-class="{'open': expandedCategory==category}" ng-click="navigateDown(category)">
-			<div class="category">
-				<div class="category-name-wrapper">
+			<div class="result-list-item category">
+				<div class="result-list-context-menu" ng-class="{open: activeCatMenu === category}">
+					<button type="button" class="btn menu red" ng-click="$event.stopPropagation()"><i class="fa fa-fw fa-trash-o"></i></button>
+					<button type="button" class="btn menu green" ng-click="navigateDown(category);openNewCatForm(category);$event.stopPropagation()"><i class="fa fa-fw fa-plus-circle"></i></button>
+					<button type="button" class="btn menu amber" ng-click="$event.stopPropagation()"><i class="fa fa-fw fa-gear"></i></button>
+				</div>
+				<button type="button" class="btn nostyle small muted interaction" ng-click="toggleCatMenu(category);$event.stopPropagation()">
+					<i class="fa fa-fw fa-bars"></i>
+				</button>
+
+
+				<div class="result-list-item-content-wrapper">
 					<div class="category-name">{{category.name}}</div>
 				</div>
-				<div class="category-interactions-wrapper">
-					<button type="button" class="btn nostyle category-interaction" ng-if="category.children.length>0" ng-click="expandCategory(category); $event.stopPropagation()">
-						<i class="fa fa-fw fa-caret-left" ng-class="{'fa-rotate-270': expandedCategory === category}"></i>
-					</button>
-					<button type="button" class="btn nostyle category-interaction" ng-click="navigateDown(category);openNewCatForm(category);$event.stopPropagation()">
-						<i class="fa fa-fw fa-plus"></i>
-					</button>
-				</div>
+				<button type="button" class="btn nostyle interaction" ng-if="category.children.length>0" ng-click="expandCategory(category); $event.stopPropagation()">
+					<i class="fa fa-fw fa-caret-left" ng-class="{'fa-rotate-270': expandedCategory === category}"></i>
+				</button>
 			</div>
 			<div class="category-children-wrapper">
 				<div class="category new-category-form-wrapper" ng-if="category.formOpen" ng-click="$event.stopPropagation()">

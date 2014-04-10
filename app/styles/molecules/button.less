@@ -8,6 +8,8 @@
 	background: @offWhite;
 	border: 1px solid @borderGrey;
 
+	outline: none;
+
 	//line-height: @dimension;
 
 	-webkit-box-sizing: border-box;
@@ -24,8 +26,40 @@
 		color: inherit;
 	}
 
+	&.menu {
+		border: none;
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
+
+	&.red {
+		background: #cc4455;
+		color: @white;
+	}
+
+	&.green {
+		background: #66ba47;
+		color: @white;
+	}
+
+	&.amber {
+		background: #FCC14F;
+		color: @white;
+		text-shadow: 0 -1px #c9b04f;
+	}
+
+
 	&:disabled {
 		color: @muted;
 		cursor: not-allowed;
+	}
+
+	&.small {
+		font-size: 0.7em;
+	}
+
+	&.muted {
+		color: @muted;
 	}
 }
