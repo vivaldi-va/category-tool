@@ -5,14 +5,13 @@
 angular.module('Cat.Controllers')
 	.controller('CatListCtrl', ['$scope', '$rootScope', '$log', 'CategoryService', function($scope, $rootScope, $log, CategoryService) {
 		$scope.categories		= CategoryService.get();
-
+		$scope.catHistory		= [];
+		$scope.categoryDepth	= 0;
 		$scope.categories.$promise.then(function(data) {
-			$rootScope.categoryRoot		= data.root;
+			$rootScope.categoryRoot	= data.root;
 		});
 
-
 		$scope.expandedCategory	= null;
-
 
 		$scope.expandCategory = function(elem) {
 			if($scope.expandedCategory === null || $scope.expandedCategory !== elem) {
@@ -23,7 +22,17 @@ angular.module('Cat.Controllers')
 		};
 
 		$scope.navigateDown = function(category) {
+			$scope.catHistory.push($rootScope.categoryRoot);
 			$rootScope.categoryRoot = category;
+			$scope.categoryDepth++;
+			$log.info('CatHistory', $scope.catHistory, $scope.categoryDepth);
+		};
+
+		$scope.navigateUp = function() {
+			$rootScope.categoryRoot = $scope.catHistory[$scope.categoryDepth-1];
+			$scope.catHistory.pop();
+			$scope.categoryDepth--;
+			$log.info('CatHistory', $scope.catHistory, $scope.categoryDepth);
 		};
 
 		$scope.openNewCatForm = function(category) {

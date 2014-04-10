@@ -1,9 +1,9 @@
 
 <div class="category-list-wrapper" ng-controller="CatListCtrl">
 	<div class="zone-heading">
-		<h3 class="zone-heading-title">category list <small>{{ categoryRoot.name }}</small></h3>
+		<button class="btn nostyle" ng-click="navigateUp()" ng-disabled="categoryRoot.id===0"><i class="fa fa-fw fa-level-up"></i></button><h3 class="zone-heading-title">category list <small>{{ categoryRoot.name }}</small></h3>
 	</div>
-
+	{{ prevCatRoot.id }}
 	<div class="well category-list">
 
 		<div class="category-wrapper new-category-form-wrapper">
