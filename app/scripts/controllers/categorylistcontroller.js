@@ -35,6 +35,10 @@ angular.module('Cat.Controllers')
 			$log.info('CatHistory', $scope.catHistory, $scope.categoryDepth);
 		};
 
+		$scope.openNewRootCatForm = function() {
+			$scope.categoryRoot.formOpen = true;
+		};
+
 		$scope.openNewCatForm = function(category) {
 			category.formOpen = true;
 		};

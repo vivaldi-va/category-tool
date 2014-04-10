@@ -3,10 +3,13 @@
 	<div class="zone-heading">
 		<button class="btn nostyle" ng-click="navigateUp()" ng-disabled="categoryRoot.id===0"><i class="fa fa-fw fa-level-up"></i></button><h3 class="zone-heading-title">category list <small>{{ categoryRoot.name }}</small></h3>
 	</div>
-	{{ prevCatRoot.id }}
+	<div class="category-list-new-cat-helper">
+		<span>new category</span>
+		<button class="btn nostyle" ng-click="openNewRootCatForm()"><i class="fa fa-plus"></i></button>
+	</div>
 	<div class="well category-list">
 
-		<div class="category-wrapper new-category-form-wrapper">
+		<div class="category-wrapper new-category-form-wrapper" ng-if="!!categoryRoot.formOpen">
 			<form class="new-category-form" ng-submit="makeCategory(categoryRoot.id, newCategoryName)">
 				<input type="text" class="new-category-input-name" placeholder="name of new category" required ng-model="newCategoryName">
 				<button class="btn nostyle"><i class="fa fa-fw fa-check"></i></button>

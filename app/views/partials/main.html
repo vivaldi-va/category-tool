@@ -8,13 +8,12 @@
 		<div class="col-8" ng-controller="ProductSearchCtrl">
 
 			<form class="form-group-inline product-search-bar" ng-submit="search()">
-				<button type="button" class="btn">
-					<!--<span ng-if="categoryRoot.name==='root'">root</span><span ng-if="categoryRoot!=='root'">{{ categoryRoot.name }}</span>-->
-					selected category
-				</button>
 				<input class="input input-primary input-fill" type="text" placeholder="search for products by keyword" ng-model="term">
 				<button type="button" class="btn"><i class="fa fa-fw fa-search"></i></button>
 				<button type="button" class="btn" ng-click="createCatFromSearch()"><i class="fa fa-fw fa-plus"></i></button>
+				<button type="button" class="btn">
+					<span ng-if="categoryRoot.name==='root'">root</span><span ng-if="categoryRoot.name!=='root'">{{ categoryRoot.name }}</span>
+				</button>
 			</form>
 			<label><input type="checkbox">select all</label>
 			<div class="well result-list">
