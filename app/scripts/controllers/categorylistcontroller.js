@@ -10,8 +10,7 @@ angular.module('Cat.Controllers')
 		$scope.categories.$promise.then(function(data) {
 			$rootScope.categoryRoot	= data.root;
 		});
-		$scope.activeCatMenu = null
-
+		$scope.activeCatMenu = null;
 		$scope.expandedCategory	= null;
 
 		$scope.expandCategory = function(elem) {
@@ -58,6 +57,13 @@ angular.module('Cat.Controllers')
 			CategoryService.create({"parent": parent, "name": name}).$promise
 				.then(function(res) {
 					$log.info(res);
+				});
+		};
+
+		$scope.removeCategory = function(categoryId) {
+			CategoryService.remove({id: categoryId}).$promise
+				.then(function(success) {
+					$log.info('HTTP', "Delete category", success);
 				});
 		};
 	}]);

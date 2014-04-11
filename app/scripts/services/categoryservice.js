@@ -21,29 +21,12 @@ angular.module('Cat.Services')
 					"method": "POST",
 					"isArray": true,
 					"responseType": 'json'
+				},
+				remove: {
+					"method": "DELETE"
 				}
 			}
 		);
-
-		function _create(data) {
-			var dfd = $q.defer();
-
-			$http({
-				url: "/api/categories",
-				method: 'POST',
-				data: data,
-				responseType: 'json'
-			})
-				.success(function(data, status) {
-					dfd.resolve(data);
-				})
-				.error(function(reason, status) {
-					$log.warn('ERR', reason, status);
-					dfd.reject(reason);
-				});
-
-			return dfd.promise;
-		}
 
 
 		return categories;
