@@ -24,15 +24,12 @@ angular.module('Cat.Controllers')
 		$scope.navigateDown = function(category) {
 			$scope.catHistory.push($rootScope.categoryRoot);
 			$rootScope.categoryRoot = category;
-			$scope.categoryDepth++;
 			$log.info('CatHistory', $scope.catHistory, $scope.categoryDepth);
 		};
 
 		$scope.navigateUp = function() {
-			$rootScope.categoryRoot = $scope.catHistory[$scope.categoryDepth-1];
-			$scope.catHistory.pop();
-			$scope.categoryDepth--;
-			$log.info('CatHistory', $scope.catHistory, $scope.categoryDepth);
+			$rootScope.categoryRoot = $scope.catHistory.pop();
+			$log.info('CatHistory', $scope.catHistory);
 		};
 
 		$scope.openNewRootCatForm = function() {
