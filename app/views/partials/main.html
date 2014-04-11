@@ -10,7 +10,7 @@
 			<form class="form-group-inline product-search-bar" ng-submit="search()">
 				<input class="input input-primary input-fill" type="text" placeholder="search for products by keyword" ng-model="term">
 				<button type="button" class="btn"><i class="fa fa-fw fa-search"></i></button>
-				<button type="button" class="btn" ng-click="createCatFromSearch()"><i class="fa fa-fw fa-plus"></i></button>
+				<button type="button" class="btn" ng-click="createCatFromSearch()"><i class="fa fa-fw fa-file"></i></button>
 				<button type="button" class="btn">
 					<span ng-if="categoryRoot.name==='root'">root</span><span ng-if="categoryRoot.name!=='root'">{{ categoryRoot.name }}</span>
 				</button>

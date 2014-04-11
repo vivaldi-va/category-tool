@@ -18,9 +18,15 @@
 		<div class="category-wrapper" ng-repeat="category in categoryRoot.children" ng-class="{'open': expandedCategory==category}" ng-click="navigateDown(category)">
 			<div class="result-list-item category">
 				<div class="result-list-context-menu" ng-class="{open: activeCatMenu === category}">
-					<button type="button" class="btn menu red" ng-click="removeCategory(category.id); $event.stopPropagation()"><i class="fa fa-fw fa-trash-o"></i></button>
-					<button type="button" class="btn menu green" ng-click="navigateDown(category);openNewCatForm(category);$event.stopPropagation()"><i class="fa fa-fw fa-plus-circle"></i></button>
-					<button type="button" class="btn menu amber" ng-click="$event.stopPropagation()"><i class="fa fa-fw fa-gear"></i></button>
+					<button type="button" class="btn menu red" ng-click="removeCategory(category.id); $event.stopPropagation()">
+						<i class="fa fa-trash-o"></i>
+					</button>
+					<button type="button" class="btn menu green" ng-click="navigateDown(category);openNewCatForm(category);$event.stopPropagation()">
+						<i class="fa fa-fw fa-file"></i>
+					</button>
+					<button type="button" class="btn menu amber" ng-click="$event.stopPropagation()">
+						<i class="fa fa-fw fa-edit"></i>
+					</button>
 				</div>
 				<button type="button" class="btn nostyle small muted interaction" ng-click="toggleCatMenu(category);$event.stopPropagation()">
 					<i class="fa fa-fw fa-bars"></i>

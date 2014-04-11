@@ -7,9 +7,11 @@ angular.module('Cat.Controllers')
 		$scope.categories		= CategoryService.get();
 		$scope.catHistory		= [];
 		$scope.categoryDepth	= 0;
-		$scope.categories.$promise.then(function(data) {
-			$rootScope.categoryRoot	= data.root;
-		});
+		$scope.categories.$promise.then(
+			function(data, status) {
+				$log.info('HTTP', "Got categories list", status);
+				$rootScope.categoryRoot	= data.root;
+			});
 		$scope.activeCatMenu = null;
 		$scope.expandedCategory	= null;
 
@@ -59,8 +61,8 @@ angular.module('Cat.Controllers')
 
 		$scope.removeCategory = function(categoryId) {
 			CategoryService.remove({id: categoryId}).$promise
-				.then(function(success) {
-					$log.info('HTTP', "Delete category", success);
+				.then(function(data, status) {
+					$log.info('HTTP', "Delete category", status);
 				});
 		};
 	}]);
